@@ -61,10 +61,10 @@
     <div class="main-content">
         <div id="global-success-message" class="alert alert-success" style="display: none;"></div>
         <div id="employee-component" class="component-container active">
-            @include('components.employees-form')
+            @include('components.employee-form')
         </div>
         <div id="task-component" class="component-container">
-            @include('components.tasks-form', ['employees' => $employees ?? []])
+            @include('components.task-form', ['employees' => $employees ?? []])
         </div>
     </div>
 

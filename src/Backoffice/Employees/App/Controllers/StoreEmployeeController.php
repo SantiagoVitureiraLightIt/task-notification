@@ -4,22 +4,22 @@ declare(strict_types=1);
 
 namespace Lightit\Backoffice\Employees\App\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
-use Lightit\Backoffice\Employee\Domain\Models\Employee;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
-class StoreEmployeeController extends Controller
+
+use Illuminate\Http\JsonResponse;
+use Lightit\Backoffice\Employees\App\Request\StoreEmployeeRequest;
+use Lightit\Backoffice\Employees\App\Transformers\EmployeeTransformer;
+use Lightit\Backoffice\Employees\Domain\Actions\StoreEmployeeAction;
+
+class StoreEmployeeController
 {
-    public function __invoke(Request $request): JsonResponse
+    public function __invoke(StoreEmployeeRequest $request, StoreEmployeeAction $action): JsonResponse
     {
-        $validated = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:employees,email',
-        ]);
+        $employeeData = $request->toDto();
+        $employee = $action->execute($employeeData);
 
-        Employee::create($validated);
-
-        return response()->json(['message' => 'Employee created successfully!'], 201);
+        return responder()
+            ->success($employee, EmployeeTransformer::class)
+            ->respond(JsonResponse::HTTP_CREATED);
     }
 }

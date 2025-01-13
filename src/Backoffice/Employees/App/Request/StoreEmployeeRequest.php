@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Lightit\Backoffice\Employees\App\Requests;
+namespace Lightit\Backoffice\Employees\App\Request;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
-use Lightit\Backoffice\Employees\Domain\Models\Employee;
+use Lightit\Backoffice\Employees\Domain\DataTransferObjects\StoreEmployeeDTO;
 
 class StoreEmployeeRequest extends FormRequest
 {
@@ -14,7 +13,15 @@ class StoreEmployeeRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email', Rule::unique((new Employee())->getTable())],
+            'email' => ['required', 'email:strict', 'unique'],
         ];
+    }
+
+    public function toDto(): StoreEmployeeDTO
+    {
+        return new StoreEmployeeDTO(
+            email: $this->string('email')->toString(),
+            name: $this->string('name')->toString(),
+        );
     }
 }

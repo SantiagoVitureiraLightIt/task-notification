@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Lightit\Backoffice\Employees\App\Controllers\StoreEmployeeController;
 use Lightit\Backoffice\Users\App\Controllers\DeleteUserController;
 use Lightit\Backoffice\Users\App\Controllers\GetUserController;
 use Lightit\Backoffice\Users\App\Controllers\ListUserController;
@@ -27,11 +28,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 | Users Routes
 |--------------------------------------------------------------------------
 */
-Route::prefix('users')
-    ->middleware([])
+// Route::prefix('users')
+//     ->middleware([])
+//     ->group(static function () {
+//         Route::get('/', ListUserController::class);
+//         Route::get('/{user}', GetUserController::class)->withTrashed();
+//         Route::post('/', StoreUserController::class);
+//         Route::delete('/{user}', DeleteUserController::class);
+//     });
+
+Route::prefix('employees')
     ->group(static function () {
-        Route::get('/', ListUserController::class);
-        Route::get('/{user}', GetUserController::class)->withTrashed();
-        Route::post('/', StoreUserController::class);
-        Route::delete('/{user}', DeleteUserController::class);
+        Route::post('/', StoreEmployeeController::class);
     });

@@ -11,7 +11,6 @@ class EmployeeTransformer extends Transformer
 {
     public function transform(Employee $employee): array
     {
-
         return [
             'id' => $employee->id,
             'name' => $employee->name,

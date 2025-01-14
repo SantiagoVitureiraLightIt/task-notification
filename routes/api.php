@@ -3,10 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Lightit\Backoffice\Employees\App\Controllers\StoreEmployeeController;
-use Lightit\Backoffice\Users\App\Controllers\DeleteUserController;
-use Lightit\Backoffice\Users\App\Controllers\GetUserController;
-use Lightit\Backoffice\Users\App\Controllers\ListUserController;
-use Lightit\Backoffice\Users\App\Controllers\StoreUserController;
+
 
 /*
 |--------------------------------------------------------------------------

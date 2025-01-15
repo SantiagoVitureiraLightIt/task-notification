@@ -25,14 +25,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 | Users Routes
 |--------------------------------------------------------------------------
 */
-// Route::prefix('users')
-//     ->middleware([])
-//     ->group(static function () {
-//         Route::get('/', ListUserController::class);
-//         Route::get('/{user}', GetUserController::class)->withTrashed();
-//         Route::post('/', StoreUserController::class);
-//         Route::delete('/{user}', DeleteUserController::class);
-//     });
+
 
 Route::prefix('employees')
     ->group(static function () {

@@ -10,5 +10,6 @@ class TaskDTO
         public string $title,
         public string $status,
         public string $description,
-    ) {}
+    ) {
+    }
 }

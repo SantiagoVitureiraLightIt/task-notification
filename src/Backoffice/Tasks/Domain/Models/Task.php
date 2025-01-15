@@ -12,9 +12,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $description
  * @property string $status
  *
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Employee newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Employee newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Employee query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Task newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Task newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Task query()
  *
  * @mixin \Eloquent
  */

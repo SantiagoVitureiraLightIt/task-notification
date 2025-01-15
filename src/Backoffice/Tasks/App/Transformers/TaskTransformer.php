@@ -9,7 +9,6 @@ use Lightit\Backoffice\Tasks\Domain\Models\Task;
 
 class TaskTransformer extends Transformer
 {
-
     public function transform(Task $task): array
     {
         return [
